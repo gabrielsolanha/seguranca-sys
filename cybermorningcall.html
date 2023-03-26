@@ -1,139 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="style.css" />
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Segurança de Sistemas</title>
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="./index.html"
-            >Home <span class="sr-only">(current)</span></a
-          >
-          <a class="nav-item nav-link" href="./sobre-mim.html">Sobre Mim</a>
-        </div>
-      </div>
-    </nav>
-    <div class="container">
-      <h1>Cyber Morning Call #227</h1>
-      <h2>Ameaças citadas com do decorrer do podcast:</h2>
-      <p>
-        A primeira grande ameça citada é sobre como as inteligências artificiais
-        estão ficando cada vez mais sagaz na hora de gerar notícias falsas,
-        podendo semear cada vez mais um caos politico sem sentido onde boa parte
-        das pessoas serão completamente incapazes de fazer uma distinção do que
-        é fato ou FAKE.
-      </p>
-      <p>
-        Com o aproveitamento de uma falha gigantesca de uma gigante financeira
-        da Colômbia (SQL Injection) conseguiram pegar dados para fazer phishings
-        muito realistas com as pessoas com informações confidências o que dava
-        mais credibilidade aos golpistas.
-      </p>
-      <p>
-        Saiu um relatório lotado de falhas gravíssimas relacionadas a gigantes
-        do mercado automotivo dentre elas Ferrari, KIA, GM, MB entre outras. As
-        falhas são extremamente alarmantes, pois o invasor consegue realizar o
-        bloqueio remoto, partida e parada do motor, piscar faróis, buzinar entre
-        outras coisas extremamente perigosas como até mesmo acesso de
-        administrador, podendo até mesmo mudar o emplacamento do veiculo
-      </p>
-      <p>
-        Agora uma promessa de ferramenta hacker chamada “flipper zero”, que
-        seria uma espécie de canivete suíço que funcionaria para abrir portões
-        infravermelho, descobrir senhas wi-fi com brute force entre outras
-        coisas bem conhecidas no meio, o aparelho existe realmente, porém já
-        esgotou e várias lojas se aproveitaram do sucesso do aparelho para
-        aplicar golpes com sites falsos e roubando o dinheiro das vítimas.
-      </p>
-      <h2>Requisitos de segurança afetados:</h2>
-      <h3>Inteligencia Artificial das notícias falsas:</h3>
-      <p>
-        A autenticidade é um grande pilar afetado, porque muitas pessoas já não
-        vão mais poder saber se vídeos de pessoas realmente são verdadeiros, ou
-        se a notícia é.
-      </p>
-      <p>
-        Outro pilar é o da irretratabilidade, levando em conta a incapacidade de
-        se negar o que está sendo noticiado a notícia fica comprometida e as
-        pessoas não tem capacidade de distinção.
-      </p>
-      <h3>Vazamento de dados por meio das falhas SQL:</h3>
-      <p>
-        A confidencialidade dos clientes foi a principal arma usada contra eles
-        próprios, pois dados precisos de coisas que ninguém mais deveria ter
-        acesso chamam a atenção deles logo esse pilar foi o mais afetado nesse
-        caso.
-      </p>
-      <h3>Invasão nos sistemas automotivos:</h3>
-      <p>
-        Nesse caso houve falhas extremamente alarmantes que chegam até mesmo pôr
-        em risco os 5 pilares, porque a autenticidade fica comprometida quando
-        se leva em conta que se pode mudar os documentos de emplacamento do
-        carro, a disponibilidade, pois o atacante consegue bloquear o motor do
-        caro, a integridade pela mesma falha citada na autenticidade, a
-        confidencialidade onde o invasor tem acesso administrativo e a
-        irretratabilidade, pois não se pode saber se o emplacamento está certo e
-        se quem fez a partida do motor foi realmente quem deveria.
-      </p>
-      <h3>Phishing do “flipper zero”</h3>
-      <p>
-        A autenticidade é a maior falha, pois o usuário acaba por não verificar
-        a confiabilidade do site onde compra o objeto e outro problema seria
-        também o da confidencialidade, pois não se pode saber o que esses sites
-        de golpistas vão fazer com os dados sensíveis que o usuário cedeu.
-      </p>
-    </div>
 
-    <footer class="blockquote-footer">
-      <div class="card">
-        <div class="card-header">
-          © Gabriel Solanha. 2023 All rigths reserved
-        </div>
-        <div class="card-body">
-          <blockquote class="blockquote mb-0">
-            <p>Estudar não é saber o que você quer, estudar é saber o que é.</p>
-            Author: <cite title="Source Title">Paulo Muzy</cite>
-          </blockquote>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Segurança de Sistemas</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="./index.html">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="./sobre-mim.html">Sobre Mim</a>
       </div>
-    </footer>
-  </body>
+    </div>
+  </nav>
+  <div class="container">
+    <h1>Cyber Morning Call #227</h1>
+    <h2>Ameaças citadas com do decorrer do podcast:</h2>
+    <p>
+      A primeira grande ameça citada é sobre como as inteligências artificiais
+      estão ficando cada vez mais sagaz na hora de gerar notícias falsas,
+      podendo semear cada vez mais um caos politico sem sentido onde boa parte
+      das pessoas serão completamente incapazes de fazer uma distinção do que
+      é fato ou FAKE.
+    </p>
+    <p>
+      Com o aproveitamento de uma falha gigantesca de uma gigante financeira
+      da Colômbia (SQL Injection) conseguiram pegar dados para fazer phishings
+      muito realistas com as pessoas com informações confidências o que dava
+      mais credibilidade aos golpistas.
+    </p>
+    <p>
+      Saiu um relatório lotado de falhas gravíssimas relacionadas a gigantes
+      do mercado automotivo dentre elas Ferrari, KIA, GM, MB entre outras. As
+      falhas são extremamente alarmantes, pois o invasor consegue realizar o
+      bloqueio remoto, partida e parada do motor, piscar faróis, buzinar entre
+      outras coisas extremamente perigosas como até mesmo acesso de
+      administrador, podendo até mesmo mudar o emplacamento do veiculo
+    </p>
+    <p>
+      Agora uma promessa de ferramenta hacker chamada “flipper zero”, que
+      seria uma espécie de canivete suíço que funcionaria para abrir portões
+      infravermelho, descobrir senhas wi-fi com brute force entre outras
+      coisas bem conhecidas no meio, o aparelho existe realmente, porém já
+      esgotou e várias lojas se aproveitaram do sucesso do aparelho para
+      aplicar golpes com sites falsos e roubando o dinheiro das vítimas.
+    </p>
+    <h2>Requisitos de segurança afetados:</h2>
+    <h3>Inteligencia Artificial das notícias falsas:</h3>
+    <p>
+      A autenticidade é um grande pilar afetado, porque muitas pessoas já não
+      vão mais poder saber se vídeos de pessoas realmente são verdadeiros, ou
+      se a notícia é.
+    </p>
+    <p>
+      Outro pilar é o da irretratabilidade, levando em conta a incapacidade de
+      se negar o que está sendo noticiado a notícia fica comprometida e as
+      pessoas não tem capacidade de distinção.
+    </p>
+    <h3>Vazamento de dados por meio das falhas SQL:</h3>
+    <p>
+      A confidencialidade dos clientes foi a principal arma usada contra eles
+      próprios, pois dados precisos de coisas que ninguém mais deveria ter
+      acesso chamam a atenção deles logo esse pilar foi o mais afetado nesse
+      caso, outro também que pode ter vindo a acontecer foi problema com a autenticidade ao se passar por uma entidade
+      legítima (como um banco, uma empresa ou um colega) e enganar os usuários a revelar informações pessoais ou a
+      executar ações específicas. Devido a isso podemos ver que o não repudio também é afetado, porque a capacidade de
+      rastrear e responsabilizar os atacantes, pois eles geralmente usam técnicas de anonimato e mascaramento para
+      ocultar sua identidade.
+    </p>
+    <h3>Invasão nos sistemas automotivos:</h3>
+    <p>
+      Nesse caso houve falhas extremamente alarmantes que chegam até mesmo pôr
+      em risco os 5 pilares fundamentais, porque a autenticidade fica comprometida quando
+      se leva em conta que se pode mudar os documentos de emplacamento do
+      carro, a disponibilidade, pois o atacante consegue bloquear o motor do
+      caro, a integridade pela mesma falha citada na autenticidade, a
+      confidencialidade onde o invasor tem acesso administrativo e a
+      irretratabilidade, pois não se pode saber se o emplacamento está certo e
+      se quem fez a partida do motor foi realmente quem deveria.
+    </p>
+    <h3>Phishing do “flipper zero”</h3>
+    <p>
+      A autenticidade é a maior falha, pois o usuário acaba por não verificar
+      a confiabilidade do site onde compra o objeto e outro problema seria
+      também o da confidencialidade, pois não se pode saber o que esses sites
+      de golpistas vão fazer com os dados sensíveis que o usuário cedeu.
+    </p>
+  </div>
+
+  <footer class="blockquote-footer">
+    <div class="card">
+      <div class="card-header">
+        © Gabriel Solanha. 2023 All rigths reserved
+      </div>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p>Estudar não é saber o que você quer, estudar é saber o que é.</p>
+          Author: <cite title="Source Title">Paulo Muzy</cite>
+        </blockquote>
+      </div>
+    </div>
+  </footer>
+</body>
+
 </html>

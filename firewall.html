@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Segurança de Sistemas</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="./index.html"
+            >Home <span class="sr-only">(current)</span></a
+          >
+          <a class="nav-item nav-link" href="./sobre-mim.html">Sobre Mim</a>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <h1>Firewall</h1>
+      <p>
+        Para exemplificar como um firewall funciona, vamos usar uma organização
+        que é muito rigorosa em relação à segurança de acesso. Essa organização
+        possui várias camadas de segurança, incluindo dois firewalls, para criar
+        uma DMZ (zona desmilitarizada). A DMZ é uma área intermediária que fica
+        entre a rede interna e a internet e é usada para colocar servidores com
+        aplicativos que serão acessados por terceiros.
+      </p>
+      <p>
+        Na organização em questão, os computadores da rede interna só terão
+        acesso a softwares on-premise, que estão hospedados dentro da própria
+        estrutura da organização, e não poderão acessar sites da web. Assim, a
+        rede interna só poderá se conectar aos servidores na DMZ para usar o
+        chat interno ou sites que são hospedados internamente, como uma
+        intranet. Eles só poderão resolver DNS pré-programados no servidor de
+        DNS, que desempenha os dois papéis, tanto o recursivo quanto o
+        autoritativo.
+      </p>
+      <p>
+        O sistema ERP e o servidor web são os únicos que terão acesso ao banco
+        de dados, o que significa que os computadores da rede interna não
+        poderão acessar diretamente o banco de dados. A configuração dessa rede
+        é bastante rígida, mas é uma forma eficaz de garantir a segurança dos
+        dados e impedir que pessoas não autorizadas acessem informações
+        confidenciais.
+      </p>
+      <img src="utils/redefirewall.png" alt="Rede do exemplo supracitado" />
+
+      <!-- aqui começa o primeiro ataque-->
+      <h2>Firewall I (Borda)</h2>
+      <table class="table">
+        <caption>
+          <strong>Lista de regras <em>Firewall I</em></strong>
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">SRC</th>
+            <th scope="col">SRC PORT</th>
+            <th scope="col">DTS PORT</th>
+            <th scope="col">DTS</th>
+            <th scope="col">PROTOCOL</th>
+            <th scope="col">SERVICE</th>
+            <th scope="col">TRANSFERÊNCIA</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">0</th>
+            <td>Any</td>
+            <td>Any</td>
+            <td>80, 443</td>
+            <td>192.168.1.144</td>
+            <td>TCP</td>
+            <td>WEB</td>
+            <td>ENTRADA</td>
+          </tr>
+          <tr>
+            <th scope="row">1</th>
+            <td>Any</td>
+            <td>Any</td>
+            <td>53</td>
+            <td>192.168.1.5</td>
+            <td>TCP, UDP</td>
+            <td>DNS</td>
+            <td>ENTRADA</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Any</td>
+            <td>Any</td>
+            <td>25</td>
+            <td>192.168.1.136</td>
+            <td>TCP</td>
+            <td>MAIL</td>
+            <td>ENTRADA</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Any</td>
+            <td>Any</td>
+            <td>8287</td>
+            <td>192.168.1.74</td>
+            <td>TCP, UDP</td>
+            <td>VOIP</td>
+            <td>ENTRADA</td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td>192.168.1.144</td>
+            <td>80, 443</td>
+            <td>Any</td>
+            <td>Any</td>
+            <td>TCP</td>
+            <td>WEB</td>
+            <td>SAIDA</td>
+          </tr>
+          <tr>
+            <th scope="row">5</th>
+            <td>192.168.1.5</td>
+            <td>53</td>
+            <td>Any</td>
+            <td>Any</td>
+            <td>TCP, UDP</td>
+            <td>DNS</td>
+            <td>SAIDA</td>
+          </tr>
+          <tr>
+            <th scope="row">6</th>
+            <td>192.168.1.136</td>
+            <td>25</td>
+            <td>Any</td>
+            <td>Any</td>
+            <td>TCP</td>
+            <td>MAIL</td>
+            <td>SAIDA</td>
+          </tr>
+          <tr>
+            <th scope="row">7</th>
+            <td>192.168.1.74</td>
+            <td>8287</td>
+            <td>Any</td>
+            <td>Any</td>
+            <td>TCP, UDP</td>
+            <td>VOIP</td>
+            <td>SAIDA</td>
+          </tr>
+          <tr>
+            <th scope="row">99</th>
+            <td>192.168.1.0/23</td>
+            <td>Any</td>
+            <td>Any</td>
+            <td>WAN</td>
+            <td>Any</td>
+            <td>MASCARDE</td>
+            <td>ENTRADA/SAIDA</td>
+          </tr>
+          <tr>
+            <th scope="row">100</th>
+            <td>Any</td>
+            <td>Any</td>
+            <td>Any</td>
+            <td>Any</td>
+            <td>Any</td>
+            <td>DROP</td>
+            <td>ENTRADA/SAIDA</td>
+          </tr>
+        </tbody>
+      </table>
+      <h4>Regra 0</h4>
+      <p>
+        Essa regra de firewall permite que qualquer dispositivo externo com um
+        endereço IP possa fazer solicitações para um servidor web que esteja
+        dentro de uma rede protegida por um firewall. Essas solicitações podem
+        ser feitas através dos protocolos HTTP (porta 80) e HTTPS (porta 443),
+        que são utilizados para transferência de dados entre o cliente e o
+        servidor. Como o protocolo de comunicação utilizado nessas conexões é o
+        TCP, é necessário garantir que os pacotes de informação estão sendo
+        recebidos corretamente para que a comunicação ocorra sem interrupções.
+      </p>
+      <h4>Regra 1</h4>
+      <p>
+        Essa é uma regra de firewall que se aplica ao serviço DNS (Domain Name
+        System). Ela permite que qualquer endereço IP possa fazer consultas ao
+        DNS através da porta padrão do serviço, que é a porta 53. Quando o
+        destino da consulta for o IP e porta do servidor DNS, a consulta será
+        permitida.
+      </p>
+      <p>
+        O protocolo UDP é utilizado para consultas pequenas, pois é rápido e
+        eficiente. Porém, quando é necessário realizar transferências de zona ou
+        consultas massivas, é mais seguro utilizar o protocolo TCP. O TCP
+        garante que os dados sejam transmitidos de forma mais confiável e
+        segura, o que é importante para manter a integridade das informações
+        transmitidas pelo DNS.
+      </p>
+
+      <h4>Regra 2</h4>
+      <p>
+        Para garantir que a comunicação com o servidor de e-mail de uma
+        organização seja eficiente, é necessário configurá-lo adequadamente. A
+        porta 25 é a porta padrão para o envio e recebimento de e-mails e é
+        usada para permitir que o servidor se comunique com outros servidores de
+        e-mail na rede. No entanto, é importante destacar que muitos provedores
+        de internet bloqueiam essa porta por ser considerada uma porta baixa, o
+        que pode afetar o pleno funcionamento do servidor de e-mail.
+      </p>
+      <p>
+        Além disso, para que o servidor de e-mail esteja funcionando
+        corretamente, é importante configurar os registros DNS corretamente.
+        Isso inclui os registros MX, DomainKey, DMARK e DKIM. O PTR, também
+        conhecido como DNS reverso, deve ser configurado pelo provedor que
+        possui o domínio sobre o bloco de endereços IP válidos no qual o
+        servidor de e-mail está localizado.
+      </p>
+      <p>
+        As portas SMTP, IMAP e POP3 são usadas apenas para comunicação interna e
+        não precisam estar disponíveis para conexões externas. Isso significa
+        que não é necessário permitir que clientes externos se conectem a essas
+        portas para enviar ou receber e-mails do servidor de e-mail da
+        organização.
+      </p>
+
+      <h4>Regra 3</h4>
+      <p>
+        Esta regra de firewall permite a conexão tanto em TCP quanto em UDP para
+        qualquer endereço IP com qualquer porta de origem para comunicação de
+        voz sobre IP (VoIP). A razão para o uso do protocolo UDP é que a
+        comunicação de voz é um serviço em tempo real e precisa ser entregue o
+        mais rápido possível, sem atrasos. Ao usar o protocolo UDP, podemos
+        evitar a sobrecarga causada pela verificação de erros e garantir uma
+        transmissão mais rápida.
+      </p>
+
+      <h4>Regras 4,5,6 e 7</h4>
+      <p>
+        Essas regras foram projetadas para garantir que os servidores em uma
+        rede somente possam se comunicar com outros dispositivos fora da rede
+        por meio das portas de serviço solicitadas. Isso significa que, se um
+        servidor precisar se comunicar com outro dispositivo em uma rede
+        externa, ele só poderá usar as portas específicas para os serviços
+        solicitados, como por exemplo, na regra 4, a porta 80 para HTTP ou a
+        porta 443 para HTTPS. Essa restrição de portas é importante porque
+        impede que um invasor faça uma varredura na rede procurando por portas
+        abertas e, assim, encontre uma porta não autorizada para acessar a rede.
+        Se uma porta não autorizada for encontrada, o invasor poderia usá-la
+        como uma "porta dos fundos" (backdoor) para acessar a rede sem ser
+        detectado. Com as regras 4, 5, 6 e 7 em vigor, essa ameaça é mitigada e
+        a segurança da rede é aprimorada.
+      </p>
+      <h4>Regras 99 e 100</h4>
+      <p>
+        O firewall é uma ferramenta que utiliza regras para controlar o tráfego
+        de rede. Essas regras são aplicadas em ordem sequencial e são
+        verificadas uma a uma. Se uma solicitação não corresponder a nenhuma das
+        regras estabelecidas, o pacote será descartado. Para evitar isso,
+        normalmente é criada uma regra padrão (a última regra da lista) que é
+        executada caso nenhuma outra regra se aplique à solicitação. Essa regra
+        padrão geralmente é chamada de "drop" e descarta o pacote. Um exemplo de
+        regra específica é a regra 99, que garante que os pacotes que saem da
+        rede interna e vão para a rede externa (Internet) sejam mascarados com o
+        endereço IP público da organização. Essa regra é importante porque a
+        rede interna pode ser composta por vários computadores, mas apenas um
+        endereço IP público pode ser utilizado. Para mascarar corretamente esses
+        pacotes, é necessário especificar uma máscara (SRC NAT) para cada
+        endereço IP público. Quando a interface de saída é o PPPoE, essa ação é
+        executada. No entanto, é importante lembrar que essa solução pode causar
+        problemas quando há mais de um endereço IP público ou conexões de
+        túneis, como VPNs. Portanto, a criação de regras específicas pode ser
+        necessária para lidar com esses casos.
+      </p>
+
+      <h2>Firewall II</h2>
+      Um firewall de borda não é suficiente para proteger completamente uma rede
+      contra ameaças, pois muitas vezes há tráfego mal-intencionado dentro da
+      rede interna. Um firewall de borda não é suficiente para proteger
+      completamente uma rede contra ameaças, pois muitas vezes há tráfego
+      mal-intencionado dentro da rede interna.
+
+      <table class="table">
+        <caption>
+          <strong>Lista de regras <em>Firewall I</em></strong>
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">SRC</th>
+            <th scope="col">SRC PORT</th>
+            <th scope="col">DTS PORT</th>
+            <th scope="col">DTS</th>
+            <th scope="col">PROTOCOL</th>
+            <th scope="col">SERVICE</th>
+            <th scope="col">TRANSFERÊNCIA</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">0</th>
+            <td>192.168.1.0/24</td>
+            <td>Any</td>
+            <td>80, 443</td>
+            <td>192.168.1.144</td>
+            <td>TCP</td>
+            <td>WEB</td>
+            <td>ENTRADA</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Regra 0</h4>
+      <p>teste</p>
+    </div>
+
+    <footer class="blockquote-footer">
+      <div class="card">
+        <div class="card-header">
+          © Gabriel Solanha. 2023 All rigths reserved
+        </div>
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <p>Estudar não é saber o que você quer, estudar é saber o que é.</p>
+            Author: <cite title="Source Title">Paulo Muzy</cite>
+          </blockquote>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
